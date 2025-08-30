@@ -147,10 +147,64 @@ function renderVideo(id) {
 
 // Render Halaman Tentang & Kontak
 function renderStatic(page) {
-  if (page === 'tentang') {
-    app.innerHTML = '<h1>Tentang</h1><p>Ini halaman tentang Essa Media.</p>';
-  } else if (page === 'kontak') {
-    app.innerHTML = '<h1>Kontak</h1><p>Hubungi kami via email: contact@essamedia.com</p>';
+  if(page === 'tentang'){
+    app.innerHTML = `
+      <section class="about-page">
+
+        <!-- Sejarah -->
+        <div class="about-section">
+          <h2>Sejarah</h2>
+          <p>
+            lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+
+        <!-- Visi & Misi -->
+        <div class="about-section">
+          <h2>Visi & Misi</h2>
+          <div class="vision-mission">
+            <div class="card">
+              <h3>Visi</h3>
+              <p>Menjadi platform kreatif terkemuka yang menginspirasi generasi muda melalui konten inovatif dan berkualitas.</p>
+            </div>
+            <div class="card">
+              <h3>Misi</h3>
+              <p>Menyediakan konten edukatif dan hiburan yang berkualitas, mendukung kreator lokal, dan mengembangkan teknologi produksi multimedia.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divisi -->
+        <div class="about-section">
+          <h2>Divisi Kami</h2>
+          <div class="about-cards">
+            <div class="about-card">
+              <h3>Operator</h3>
+              <p>Mengabadikan momen terbaik dengan kualitas profesional.</p>
+            </div>
+            <div class="about-card">
+              <h3>Desain Grafis</h3>
+              <p>Membuat animasi kreatif yang menghibur dan edukatif.</p>
+            </div>
+            <div class="about-card">
+              <h3>Editor</h3>
+              <p>Menciptakan desain visual yang menarik dan estetik.</p>
+            </div>
+            <div class="about-card">
+              <h3>Web Developer</h3>
+              <p>Mengembangkan website, aplikasi, dan solusi digital untuk mendukung semua divisi.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+  } else if(page === 'kontak'){
+    app.innerHTML = `
+      <section class="contact-page">
+        <h1>Kontak</h1>
+        <p>Hubungi kami via email: <a href="mailto:contact@essamedia.com">contact@essamedia.com</a></p>
+      </section>
+    `;
   }
 }
 

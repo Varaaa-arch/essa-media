@@ -17,6 +17,15 @@ body {
     background: #fff;
     line-height: 1.6;
 }
+html, body {      
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
+}
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+  width: 0px;  
+  background: transparent; 
+}
 body.dark-mode {
   background: #111;
   color: #f5f5f5;
@@ -35,9 +44,14 @@ header {
     justify-content: space-between;
     position: sticky;
     top: 0;
-    left: 0;
+    z-index: 9999;
+    background: inherit;
     width: 100%;
-    z-index: 1000;
+    box-shadow: 0 2px 8px rgb(238, 255, 0);
+}
+body.dark-mode header {
+  background: #111;
+  box-shadow: 0 2px 8px rgb(255, 198, 9);
 }
 .logo {
   display: flex;
@@ -53,19 +67,10 @@ header {
   border-radius: 12px; 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
   transition: transform 0.3s ease;
+  margin-left: 20px;
 }
 .logo img:hover {
   transform: scale(1.08); 
-}
-.logo h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1a1a1a; 
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
-}
-.logo h1:hover {
-  color: #ffd139; 
 }
 body.dark-mode .logo h1:hover {
   color: #fff128; 
@@ -74,7 +79,7 @@ body.dark-mode .logo h1:hover {
   font-size: 0.9rem;
   color: #ddd;
   margin: 5px 0;
-  margin-left: 25px;
+  margin-left: 210px;
 }
 nav {
   display: flex;
@@ -306,10 +311,10 @@ body.dark-mode .video-card {
 
 /* Detail video page */
 .video-detail {
-  padding: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: -35px;
+    text-align: center;
 }
 
 .video-detail h1 {
@@ -384,4 +389,176 @@ body.dark-mode .back-btn {
 body .back-btn {
     background: linear-gradient(90deg,#ff9900,#ffee00);
     color: #111;
+}
+
+/* About Page Container */
+.about-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Section Styling */
+.about-section {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-section:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.about-section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #ffee00, #ee0979);
+  border-radius: 2px;
+  margin-top: 10px;
+}
+
+/* Paragraphs */
+.about-section p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Vision & Mission */
+.vision-mission {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.vision-mission .card {
+  flex: 1 1 45%;
+  background: linear-gradient(135deg, #ffee00, #ffee00);
+  color: #111;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vision-mission .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.vision-mission h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+/* Divisi Cards */
+.about-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.about-card {
+  flex: 1 1 45%;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+}
+
+.about-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: #ff6a00;
+}
+
+.about-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* === Dark Mode About Page === */
+body.dark-mode .about-page {
+  background: #111; /* Dark overall background */
+}
+
+body.dark-mode .about-section {
+  background: #1a1a1a;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+body.dark-mode .about-section h2 {
+  color: #f5f5f5;
+}
+
+body.dark-mode .about-section h2::after {
+  background: linear-gradient(90deg, #ffb347, #ffcc33);
+}
+body.dark-mode .about-section p {
+  color: #ccc;
+}
+
+/* Vision & Mission */
+body.dark-mode .vision-mission .card {
+  background: linear-gradient(135deg, #ffb247a8, #ffb247a8);
+  color: #fff;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .vision-mission .card:hover {
+  box-shadow: 0 25px 50px rgba(255,140,0,0.5);
+}
+
+/* Divisi Cards */
+body.dark-mode .about-card {
+  background: #222;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .about-card:hover {
+  box-shadow: 0 25px 50px rgba(255,140,0,0.3);
+}
+
+body.dark-mode .about-card h3 {
+  color: #ff8c00;
+}
+
+body.dark-mode .about-card p {
+  color: #ddd;
+}
+
+body.dark-mode .about-section p,
+body.dark-mode .about-intro {
+  color: #ddd;
+}
+
+.about-page,
+.about-section,
+.about-card,
+.vision-mission .card {
+  transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
 }
