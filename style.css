@@ -603,7 +603,7 @@ body.dark-mode .about-intro {
   box-shadow: 0 12px 28px rgba(255,140,0,1);
 }
 
-/* Contact Cards */
+/* Contact Grid */
 .contact-grid {
   display: flex;
   justify-content: center;
@@ -615,40 +615,27 @@ body.dark-mode .about-intro {
 
 .contact-card {
   flex: 1 1 250px;
-  background: #fff;
+  background: #ffffff;
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: left;
   transition: all 0.3s ease-in-out;
+    box-shadow: 
+    0 8px 20px rgba(0,0,0,0.12),
+    0 16px 40px rgba(0,0,0,0.08);
 }
 
 .contact-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(255,120,0,0.2);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 12px 24px rgba(0,0,0,0.18),
+    0 20px 48px rgba(0,0,0,0.12);
 }
 
 .contact-card h3 {
   font-size: 1.2rem;
   margin-bottom: 0.6rem;
-  color: #ffc508f3;
-}
-
-body .contact-card {
-  background: #1a1a1a;
-  p {
-    color: #ddd;
-  }
-}
-
-body.dark-mode .contact-card {
-  background: white;
-  p {
-    color: #444;
-  }
-  h3 {
-    color: #ff9900;
-  }
+  color: #ff9900;
 }
 
 .contact-card p {
@@ -663,15 +650,41 @@ body.dark-mode .contact-card {
   text-decoration: none;
   padding: 0.6rem 1rem;
   border-radius: 8px;
-  background: linear-gradient(90deg,#ffcc00,#ffef08a2);
+  background: linear-gradient(90deg,#ffcc00,#ffee55);
   color: #1a1a1a;
   transition: 0.3s;
 }
 
 .contact-card a:hover {
-  background: linear-gradient(90deg,#ffef08a2,#ffcc00);
+  background: linear-gradient(90deg,#ffee55,#ffcc00);
 }
 
+body.dark-mode .contact-card {
+  background: #1a1a1a;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+body.dark-mode .contact-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.8);
+}
+
+body.dark-mode .contact-card h3 {
+  color: #ffd60a; /* kuning biar kontras */
+}
+
+body.dark-mode .contact-card p {
+  color: #ddd;
+}
+
+body.dark-mode .contact-card a {
+  background: linear-gradient(90deg,#ff9900,#ffc400);
+  color: #111;
+}
+
+body.dark-mode .contact-card a:hover {
+  background: linear-gradient(90deg,#ffc400,#ff9900);
+}
 
 /* Footer */
 .footer {
