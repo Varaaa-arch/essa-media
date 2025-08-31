@@ -201,9 +201,32 @@ function renderStatic(page) {
   } else if(page === 'kontak'){
     app.innerHTML = `
       <section class="contact-page">
-        <h1>Kontak</h1>
-        <p>Hubungi kami via email: <a href="mailto:contact@essamedia.com">contact@essamedia.com</a></p>
-      </section>
+        <h1>Kontak Kami</h1>
+
+        <!-- Peta Boedoet -->
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.7261643051875!2d106.83440207414765!3d-6.167412560439079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5c894859df1%3A0x7107711c2d6b0651!2sSMK%20Negeri%201%20Jakarta!5e0!3m2!1sid!2sid!4v1756616580565!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <!-- Contact Cards -->
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Dukungan</h3>
+            <p>Kami siap membantu</p>
+            <a href="mailto:essa@essamedia.com">essa@essamedia.com</a>
+          </div>
+          <div class="contact-card">
+            <h3>Kunjungi Kami</h3>
+            <p>Datang langsung ke kantor pusat</p>
+            <a href="https://maps.google.com?q=Smkn 1 Jakarta" target="_blank">Lihat di Google Maps</a>
+          </div>
+          <div class="contact-card">
+            <h3>Telepon</h3>
+            <p>Senin – Jumat, 08.00 - 17.00</p>
+            <a href="tel:+62211234567">+62 1234 5678 910</a>
+          </div>
+        </div>
+      </section>  
     `;
   }
 }
