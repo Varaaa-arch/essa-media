@@ -85,7 +85,7 @@ const videos = [
 // Render Halaman Home + Search
 function renderHome(filter = '') {
   app.innerHTML = `
-    <div class="search-bar">
+    <div class="search-bar animate-in">
       <input type="text" id="searchInput" placeholder="Cari video..." value="${filter}">
     </div>
     <div class="video-list" id="videoList"></div>
@@ -131,7 +131,7 @@ function renderVideo(id) {
   }
 
   app.innerHTML = `
-    <section class="video-detail">
+    <section class="video-detail animate-in">
       <h1>${video.judul}</h1>
       <video src="${video.file}" controls autoplay></video>
       <div class="video-info">
@@ -149,7 +149,7 @@ function renderVideo(id) {
 function renderStatic(page) {
   if(page === 'tentang'){
     app.innerHTML = `
-      <section class="about-page">
+      <section class="about-page  animate-in">
 
         <!-- Sejarah -->
         <div class="about-section">
@@ -200,7 +200,7 @@ function renderStatic(page) {
     `;
   } else if(page === 'kontak'){
     app.innerHTML = `
-      <section class="contact-page">
+      <section class="contact-page animate-fade-in">
         <h1>Kontak Kami</h1>
 
         <!-- Peta Boedoet -->
