@@ -309,6 +309,24 @@ body.dark-mode .video-card {
   }
 }
 
+.load-more-btn {
+  background: linear-gradient(135deg, #ff9100, #ffce00);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #111;
+  transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #ffb300, #ffe066);
+}
+
+
 /* Detail video page */
 .video-detail {
     max-width: 900px;

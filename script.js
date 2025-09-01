@@ -80,19 +80,51 @@ const videos = [
     file: 'video/dummy.mp4',
     thumbnail: 'image/thumbnail/thumb1.jpeg'
   },
+  {
+    id: 7,
+    judul: 'adipiscing',
+    pembuat: 'lorem',
+    divisi: 'lorem',
+    deskripsi: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    file: 'video/dummy.mp4',
+    thumbnail: 'image/thumbnail/thumb1.jpeg'
+  },
+  {
+    id: 8,
+    judul: 'adipiscing',
+    pembuat: 'lorem',
+    divisi: 'lorem',
+    deskripsi: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    file: 'video/dummy.mp4',
+    thumbnail: 'image/thumbnail/thumb1.jpeg'
+  },
+  {
+    id: 8,
+    judul: 'adipiscing',
+    pembuat: 'lorem',
+    divisi: 'lorem',
+    deskripsi: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    file: 'video/dummy.mp4',
+    thumbnail: 'image/thumbnail/thumb1.jpeg'
+  },
 ];
 
-// Render Halaman Home + Search
 function renderHome(filter = '') {
   app.innerHTML = `
     <div class="search-bar animate-in">
       <input type="text" id="searchInput" placeholder="Cari video..." value="${filter}">
     </div>
     <div class="video-list" id="videoList"></div>
+    <div class="more-container" style="text-align:center; margin-top:20px;">
+      <button id="loadMoreBtn" class="load-more-btn" style="display:none;">Selengkapnya</button>
+    </div>
   `;
 
   const searchInput = document.getElementById('searchInput');
   const videoList = document.getElementById('videoList');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+  let visibleCount = 6; // default tampil 6 dulu
 
   // Function untuk update video list
   function updateVideoList() {
@@ -104,19 +136,38 @@ function renderHome(filter = '') {
 
     if (filteredVideos.length === 0) {
       videoList.innerHTML = '<p>Tidak ada video ditemukan.</p>';
+      loadMoreBtn.style.display = 'none';
     } else {
-      videoList.innerHTML = filteredVideos.map(video => `
-        <div class="video-card" onclick="location.hash='video-${video.id}'">
+      const visibleVideos = filteredVideos.slice(0, visibleCount);
+
+      videoList.innerHTML = visibleVideos.map(video => `
+        <div class="video-card animate-in" onclick="location.hash='video-${video.id}'">
           <img src="${video.thumbnail}" alt="${video.judul}">
           <h3>${video.judul}</h3>
           <p>${video.pembuat} - ${video.divisi}</p>
         </div>
       `).join('');
+
+      // tombol load more muncul hanya kalau masih ada sisa
+      if (filteredVideos.length > visibleCount) {
+        loadMoreBtn.style.display = 'inline-block';
+      } else {
+        loadMoreBtn.style.display = 'none';
+      }
     }
   }
 
   // Event listener input
-  searchInput.addEventListener('input', updateVideoList);
+  searchInput.addEventListener('input', () => {
+    visibleCount = 6; // reset kalau search
+    updateVideoList();
+  });
+
+  // Event tombol Selengkapnya
+  loadMoreBtn.addEventListener('click', () => {
+    visibleCount += 6; // tambah 6 lagi
+    updateVideoList();
+  });
 
   // Render awal
   updateVideoList();
