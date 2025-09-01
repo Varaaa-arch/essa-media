@@ -24,13 +24,32 @@ updateTime();
 
 const app = document.getElementById('app');
 
+
+// humbeger menu
+const hamburger = document.getElementById("hamburgerMenu");
+const sidebar = document.getElementById("sidebar");
+
+hamburger.addEventListener("click", () => {
+  sidebar.classList.toggle("active");
+  hamburger.classList.toggle("open"); 
+});
+
+// Klik luar sidebar biar nutup
+document.addEventListener("click", (e) => {
+  if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+    sidebar.classList.remove("active");
+    hamburger.classList.remove("open");
+  }
+});
+
+
 // Data Video
 const videos = [
   {
     id: 1,
     judul: 'lorem',
-    pembuat: 'lorem',
-    divisi: 'lorem',
+    pembuat: 'pembuat',
+    divisi: 'divisi',
     deskripsi: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     file: 'video/dummy.mp4',
     thumbnail: 'image/thumbnail/thumb1.jpeg'
@@ -38,8 +57,8 @@ const videos = [
   {
     id: 2,
     judul: 'ipsum',
-    pembuat: 'lorem',
-    divisi: 'lorem',
+    pembuat: 'pembuat',
+    divisi: 'divisi',
     deskripsi: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     file: 'video/dummy.mp4',
     thumbnail: 'image/thumbnail/thumb1.jpeg'
@@ -47,8 +66,8 @@ const videos = [
   {
     id: 3,
     judul: 'sit amet',
-    pembuat: 'lorem',
-    divisi: 'lorem',
+    pembuat: 'pembuat',
+    divisi: 'divisi',
     deskripsi: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     file: 'video/dummy.mp4',
     thumbnail: 'image/thumbnail/thumb1.jpeg'
@@ -56,8 +75,8 @@ const videos = [
   {
     id: 4,
     judul: 'dolor',
-    pembuat: 'lorem',
-    divisi: 'lorem',
+    pembuat: 'pembuat',
+    divisi: 'divisi',
     deskripsi: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     file: 'video/dummy.mp4',
     thumbnail: 'image/thumbnail/thumb1.jpeg'
@@ -65,8 +84,8 @@ const videos = [
   {
     id: 5,
     judul: 'consectetur',
-    pembuat: 'lorem',
-    divisi: 'lorem',
+    pembuat: 'pembuat',
+    divisi: 'divisi',
     deskripsi: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     file: 'video/dummy.mp4',
     thumbnail: 'image/thumbnail/thumb1.jpeg'
@@ -74,8 +93,8 @@ const videos = [
   {
     id: 6,
     judul: 'adipiscing',
-    pembuat: 'lorem',
-    divisi: 'lorem',
+    pembuat: 'pembuat',
+    divisi: 'divisi',
     deskripsi: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     file: 'video/dummy.mp4',
     thumbnail: 'image/thumbnail/thumb1.jpeg'
@@ -83,8 +102,8 @@ const videos = [
   {
     id: 7,
     judul: 'adipiscing',
-    pembuat: 'lorem',
-    divisi: 'lorem',
+    pembuat: 'pembuat',
+    divisi: 'divisi',
     deskripsi: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     file: 'video/dummy.mp4',
     thumbnail: 'image/thumbnail/thumb1.jpeg'
@@ -92,17 +111,17 @@ const videos = [
   {
     id: 8,
     judul: 'adipiscing',
-    pembuat: 'lorem',
-    divisi: 'lorem',
+    pembuat: 'pembuat',
+    divisi: 'divisi',
     deskripsi: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     file: 'video/dummy.mp4',
     thumbnail: 'image/thumbnail/thumb1.jpeg'
   },
   {
-    id: 8,
+    id: 9,
     judul: 'adipiscing',
-    pembuat: 'lorem',
-    divisi: 'lorem',
+    pembuat: 'pembuat',
+    divisi: 'divisi',
     deskripsi: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     file: 'video/dummy.mp4',
     thumbnail: 'image/thumbnail/thumb1.jpeg'
@@ -124,7 +143,7 @@ function renderHome(filter = '') {
   const videoList = document.getElementById('videoList');
   const loadMoreBtn = document.getElementById('loadMoreBtn');
 
-  let visibleCount = 6; // default tampil 6 dulu
+  let visibleCount = 6; 
 
   // Function untuk update video list
   function updateVideoList() {
@@ -148,7 +167,6 @@ function renderHome(filter = '') {
         </div>
       `).join('');
 
-      // tombol load more muncul hanya kalau masih ada sisa
       if (filteredVideos.length > visibleCount) {
         loadMoreBtn.style.display = 'inline-block';
       } else {
@@ -159,13 +177,13 @@ function renderHome(filter = '') {
 
   // Event listener input
   searchInput.addEventListener('input', () => {
-    visibleCount = 6; // reset kalau search
+    visibleCount = 6; 
     updateVideoList();
   });
 
   // Event tombol Selengkapnya
   loadMoreBtn.addEventListener('click', () => {
-    visibleCount += 6; // tambah 6 lagi
+    visibleCount += 6; 
     updateVideoList();
   });
 
@@ -263,7 +281,7 @@ function renderStatic(page) {
         <div class="contact-grid">
           <div class="contact-card">
             <h3>Dukungan</h3>
-            <p>Kami siap membantu</p>
+            <p>Dukung kami!</p>
             <a href="mailto:essa@essamedia.com">essa@essamedia.com</a>
           </div>
           <div class="contact-card">
